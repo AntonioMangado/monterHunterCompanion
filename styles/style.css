@@ -1,0 +1,93 @@
+/*Font family*/
+* {
+    font-family: 'Joti One', cursive;
+    font-size: 14px;
+
+    text-shadow: 2px 2px 2px #4f4e4efa;
+}
+
+/*Background image*/
+body {
+    background-image: url("../assets/images/landing-background.webp");
+    background-color: rgba(0, 0, 0, 0.308);
+    background-position: center;
+    background-blend-mode: darken;
+    /* background-size: contain; */
+    
+}
+
+/* body:after {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0; 
+    background: rgba(0,0,0,0.5);
+    pointer-events: none;
+  } */
+
+/*Nav*/
+#nav-ul {
+    background-color: #B2533E;
+    height: 70px;
+    margin: 5px;
+    padding-left: 10px;
+
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+
+    list-style: none;
+}
+
+#nav-ul #logo-img {
+    height: 60px;
+}
+
+#nav-ul li, a {
+    text-decoration: none;
+    color: white;
+
+    margin: auto 10px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    font-size: 1.2em;
+}
+
+#nav-ul a:active {
+    position: relative;
+    top: 2px;
+}
+
+
+/*Landing Screen*/
+#landing {
+    height: 70vh;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+}
+
+#landing h1 {
+    font-size: 3.5em;
+}
+
+#landing h3 {
+    font-size: 2em;
+    margin-bottom: 60px;
+}
+
+#landing button {
+    background-color: #B2533E;
+    color: white;
+    font-size: 2em;
+}
+
