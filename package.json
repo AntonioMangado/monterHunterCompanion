@@ -1,0 +1,28 @@
+{
+  "name": "monterhuntercompanion",
+  "version": "1.0.0",
+  "description": "Monster Hunter App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioMangado/monterHunterCompanion.git"
+  },
+  "keywords": [
+    "app",
+    "monsterHunter",
+    "frontEnd",
+    "comparator"
+  ],
+  "author": "Antonio Mangado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonioMangado/monterHunterCompanion/issues"
+  },
+  "homepage": "https://github.com/AntonioMangado/monterHunterCompanion#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
