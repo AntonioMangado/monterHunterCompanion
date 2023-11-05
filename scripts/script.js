@@ -1,5 +1,4 @@
 // Global variables
-
 const landing = document.getElementById("landing");
 const startingBtn = document.querySelector(".starter");
 const monsterSect = document.getElementById("monster-cards");
@@ -40,20 +39,28 @@ startingBtn.addEventListener("click", async function() {
 
     for (let i = 0; i < monsterCards.length; i++) {
         monsterCards[i].addEventListener("click", function () {
+            
             console.log(`You chose the monster: ${largeMonsters[i].name}`)
 
             // Find weakness
             let monsterWeakness = largeMonsters[i].weaknesses.find(weak => weak.stars > 2)
             console.log(`Weakness: ${monsterWeakness.element}`)
 
+            // Data gets stored
             localStorage.MonsterName = `${largeMonsters[i].name}`
             localStorage.MonsterWeakness = `${monsterWeakness.element}`
+
+            //Hide the monster section
+            setTimeout(makeMonstersDisappear, 2000);
+            ;
         }) 
-    
-    
     }
     
 })
 
 // Functions
+function makeMonstersDisappear() { 
+    console.log("Delayed action executed")
+    monsterSect.style.display = null
+}
 
