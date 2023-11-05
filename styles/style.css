@@ -87,14 +87,14 @@ body {
 }
 
 
-/*Monster cards*/
-#monster-cards {
+/*Monster and weapon cards*/
+.cards {
     display: none;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#monster-cards h3 {
+.cards h3 {
     font-size: 2em;
     width: 80%;
     text-align: center;
@@ -102,7 +102,7 @@ body {
     text-shadow: 2px 2px 2px #4f4e4efa;
 }
 
-#monster-cards button {
+.cards button {
     background-color: transparent;
     border: none;
 
@@ -110,7 +110,7 @@ body {
     margin: 5px auto;
 }
 
-#monster-cards button:active {
+.cards button:active {
     position: relative;
     top: 2px
 }
@@ -127,10 +127,19 @@ body {
     text-align: center;
 }
 
-.monster-img {
+.item-img {
     height: 100px;
 }
 
-.monster-name {
+.item-name {
     margin: 0 auto;
+}
+
+/*Weapon cards*/
+#weapons .item-img {
+    height: 70px;
+}
+
+#weapons .card {
+    width: 120px;
 }
