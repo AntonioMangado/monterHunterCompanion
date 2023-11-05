@@ -6,23 +6,21 @@
     text-shadow: 2px 2px 2px #4f4e4efa;
 }
 
+/*Hide functionality*/
+.hide {
+    display: none;
+}
+
 /*Background image*/
 body {
     background-image: url("../assets/images/landing-background.webp");
     background-color: rgba(0, 0, 0, 0.308);
     background-position: center;
     background-blend-mode: darken;
+    background-attachment: fixed;
     /* background-size: contain; */
     
 }
-
-/* body:after {
-    content: "";
-    position: fixed;
-    top: 0; bottom: 0; left: 0; right: 0; 
-    background: rgba(0,0,0,0.5);
-    pointer-events: none;
-  } */
 
 /*Nav*/
 #nav-ul {
@@ -66,11 +64,6 @@ body {
     height: 70vh;
     margin: 10px;
 
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
     text-align: center;
 
     color: white;
@@ -94,11 +87,31 @@ body {
 
 /*Monster cards*/
 #monster-cards {
-    display: flex;
+    display: none;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
+#monster-cards h3 {
+    font-size: 2em;
+    width: 80%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px #4f4e4efa;
+}
+
+#monster-cards button {
+    background-color: transparent;
+    border: none;
+
+    padding: 0;
+    margin: 5px auto;
+}
+
+#monster-cards button:active {
+    position: relative;
+    top: 2px
+}
 
 .card {
     border: 2px white solid;
