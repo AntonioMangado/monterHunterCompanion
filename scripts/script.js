@@ -4,6 +4,7 @@ const landing = document.getElementById("landing");
 const startingBtn = document.querySelector(".starter");
 const monsterSect = document.getElementById("monster-cards");
 
+
 // Events
 startingBtn.addEventListener("click", async function() {
 
@@ -28,10 +29,29 @@ startingBtn.addEventListener("click", async function() {
                     <img class="monster-img" src="./assets/images/monster icons/${largeMonsters[i].name}.webp" alt="${largeMonsters[i].name}">
                     <p class="monster-name">${largeMonsters[i].name}</p>
                 </article></button>`
-        
     }
 
+    // Cards get printed
     monsterSect.innerHTML = list;
+
+    // Store selection in LocalStorage
+    const monsterBtns = document.querySelectorAll("#monster-cards button")
+    const monsterCards = document.querySelectorAll(".card")
+
+    for (let i = 0; i < monsterCards.length; i++) {
+        monsterCards[i].addEventListener("click", function () {
+            console.log(`You chose the monster: ${largeMonsters[i].name}`)
+
+            // Find weakness
+            let monsterWeakness = largeMonsters[i].weaknesses.find(weak => weak.stars > 2)
+            console.log(`Weakness: ${monsterWeakness.element}`)
+
+            localStorage.MonsterName = `${largeMonsters[i].name}`
+            localStorage.MonsterWeakness = `${monsterWeakness.element}`
+        }) 
+    
+    
+    }
     
 })
 

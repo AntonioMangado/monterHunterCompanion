@@ -18,6 +18,8 @@ body {
     background-position: center;
     background-blend-mode: darken;
     background-attachment: fixed;
+
+    box-sizing: content-box;
     /* background-size: contain; */
     
 }
