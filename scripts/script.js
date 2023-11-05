@@ -4,6 +4,7 @@ const startingBtn = document.querySelector(".starter");
 const monsterSect = document.querySelector(".cards");
 const weaponSect = document.getElementById("weapons");
 
+
 // Events
 startingBtn.addEventListener("click", async function() {
 
@@ -79,11 +80,22 @@ startingBtn.addEventListener("click", async function() {
                     weaponsArr.push(weaknessWeapon[i].type)
                 }
             }
+            console.log(weaponsArr);
 
             // Weapon section shows up
             weaponSect.style.display = null;
             weaponSect.style.display = "flex";
             weaponSect.innerHTML = weaponList; 
+
+            // Store the weapon on LocalStorage
+            const weaponCards = document.querySelectorAll("#weapons .card")
+            for (let i = 0; i < weaponCards.length; i++) {
+                weaponCards[i].addEventListener("click", function() {
+                    localStorage.weaponType = weaponsArr[i]
+                    console.log(`You chose the weapon: ${weaponsArr[i]}`)
+                })
+                
+            }
         }) 
     }
 })
