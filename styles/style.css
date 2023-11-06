@@ -143,3 +143,28 @@ body {
 #weapons .card {
     width: 120px;
 }
+
+
+/*Returned card*/
+.returned-card {
+    border: 2px #B2533E solid;
+    border-radius: 10px;
+    background-color: rgb(240, 237, 237);
+
+    margin: 10px;
+    padding: 5px;
+    width: 170px;
+
+    text-align: center;
+}
+
+.returned-item-img {
+    height: 230px;
+    position: relative;
+    right: 20%;
+}
+
+.returned-item-name {
+    font-size: x-large;
+    margin: 0 auto;
+}

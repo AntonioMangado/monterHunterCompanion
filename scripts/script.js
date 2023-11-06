@@ -3,6 +3,7 @@
     const startingBtn = document.querySelector(".starter");
     const monsterSect = document.querySelector(".cards");
     const weaponSect = document.getElementById("weapons");
+    const comparatorSect = document.getElementById("comparator")
 
 
 // Events
@@ -80,7 +81,6 @@
                         weaponsArr.push(weaknessWeapon[i].type)
                     }
                 }
-                console.log(weaponsArr);
 
                 // Weapon section shows up
                 weaponSect.style.display = null;
@@ -93,15 +93,53 @@
                     weaponCards[i].addEventListener("click", function() {
                         localStorage.weaponType = weaponsArr[i]
                         console.log(`You chose the weapon: ${weaponsArr[i]}`)
+
+                        // Hide weapons screen
+                        setTimeout(makeWeaponsDisappear, 2000);
+
+                        // Show comparator screen
+                        comparatorSect.style.display = null
+                        comparatorSect.style.display = "flex"
+
+                        // Draw the monster and weapon chosen
+                        const monster = localStorage.getItem("MonsterName")
+                        const weapon = localStorage.getItem("weaponType")
+                        let comparatorList = `<h3>These are your choices:</h3>
+                                                <article class="card">
+                                                    <img class="item-img" src="./assets/images/monster icons/${monster}.webp" alt="${monster}">
+                                                    <p class="item-name">${monster}</p>
+                                                 </article>
+                                                <article class="card">
+                                                    <img class="item-img" src="./assets/images/weapon icons/${weapon}.webp" alt="${weapon}">
+                                                    <p class="item-name">${weapon.replace("-", " ")}</p>
+                                                </article>
+                                                <h3>Your optimal weapon is...</h3>`
+                        
+
+                        // Find the optimal weapon
+                        const optimalWeapons = weaknessWeapon.filter(obj => obj.type == weapon)
+                        console.log(optimalWeapons)
+                        console.log(optimalWeapons[0].assets.image)
+
+                        comparatorList += `<article class="returned-card">
+                                                    <img class="returned-item-img" src="${optimalWeapons[0].assets.image}" alt="${optimalWeapons[0].name}">
+                                                    <p class="returned-item-name">${optimalWeapons[0].name}</p>
+                                            </article>`
+                        
+                        comparatorSect.innerHTML = comparatorList;
+
                     })
                 }
             }) 
         }
     })
 
-// Functions
+    // Functions
     function makeMonstersDisappear() { 
-        console.log("Delayed action executed")
         monsterSect.style.display = null
+    }
+
+    function makeWeaponsDisappear() {
+        weaponSect.style.display = null
     }
 
