@@ -1,12 +1,13 @@
-// Global variables
+    
+    // Global variables
     const landing = document.getElementById("landing");
     const startingBtn = document.querySelector(".starter");
     const monsterSect = document.querySelector(".cards");
     const weaponSect = document.getElementById("weapons");
     const comparatorSect = document.getElementById("comparator")
+    const homeBtn = document.querySelector("#nav-ul > li:nth-child(2)")
 
-
-// Events
+    // Events
     startingBtn.addEventListener("click", async function() {
 
         // Landing screen hides
@@ -117,22 +118,47 @@
                         
 
                         // Find the optimal weapon
+                        // Filter by selected weapon type
                         const optimalWeapons = weaknessWeapon.filter(obj => obj.type == weapon)
-                        console.log(optimalWeapons)
-                        console.log(optimalWeapons[0].assets.image)
+                        
+                        // Iterate to store the attack value
+                        let attackValues = [];
+                        for (let i = 0; i < optimalWeapons.length; i++) {
 
-                        comparatorList += `<article class="returned-card">
-                                                    <img class="returned-item-img" src="${optimalWeapons[0].assets.image}" alt="${optimalWeapons[0].name}">
-                                                    <p class="returned-item-name">${optimalWeapons[0].name}</p>
-                                            </article>`
+                            attackValues.push(optimalWeapons[i].attack.display)
+                        }
+
+                        let attackHightoLow = attackValues.sort((a,b) => b-a);
+                        let highestAttack = attackHightoLow[0]
+
+                        // Find the weapon in the array matching the highest attack
+                        let optimalWeapon = optimalWeapons.find(obj => obj.attack.display == highestAttack)
+                        
+                        comparatorList += ` <div class="flip-card">
+                                                <div class="flip-card-inner">
+                                                    <div class="flip-card-front" class="returned-card">
+                                                        <img src="${optimalWeapon.assets.image}" alt="${optimalWeapon.name}" class="returned-img">
+                                                        <p class="returned-item-name">${optimalWeapon.name}</p>
+                                                    </div>
+                                                    <div class="flip-card-back">
+                                                        <p>Attack: ${optimalWeapon.attack.display}</p>
+                                                        <p>Element: ${optimalWeapon.elements[0].type.charAt(0).toUpperCase() + optimalWeapon.elements[0].type.slice(1)}</p>
+                                                        <p>Elemental DMG: ${optimalWeapon.elements[0].damage}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="finisher">Return home</button>`
+                                            
                         
                         comparatorSect.innerHTML = comparatorList;
-
+                        document.querySelector(".finisher").addEventListener("click", returnHome)
                     })
                 }
             }) 
         }
     })
+
+    homeBtn.addEventListener("click", returnHome)
 
     // Functions
     function makeMonstersDisappear() { 
@@ -141,5 +167,15 @@
 
     function makeWeaponsDisappear() {
         weaponSect.style.display = null
+    }
+
+    function returnHome() {
+        monsterSect.style.display = null;
+        weaponSect.style.display = null;
+        comparatorSect.style.display = null;
+        monsterSect.innerHTML = "";
+        weaponSect.innerHTML = "";
+        comparatorSect.innerHTML = ""; 
+        landing.classList.remove("hide");
     }
 
