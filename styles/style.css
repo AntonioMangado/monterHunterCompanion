@@ -225,3 +225,22 @@ body {
     font-size: 1.7em;
     margin: 15px auto;
   }
+
+/*Loader*/
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height to match your design */
+  }
+  
+  .loading-spinner img {
+    width: 102px; /* Adjust the width and height to match your image size */
+    height: 64px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

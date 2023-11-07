@@ -3,21 +3,21 @@
     const landing = document.getElementById("landing");
     const startingBtn = document.querySelector(".starter");
     const monsterSect = document.querySelector(".cards");
-    const monsterSect2 = document.getElementById("monsters-list")
     const weaponSect = document.getElementById("weapons");
     const comparatorSect = document.getElementById("comparator")
     const homeBtn = document.querySelector("#nav-ul > li:nth-child(2)")
     const monsterListBtn = document.querySelector("#nav-ul > li:nth-child(3)")
+    const spinner = document.querySelector(".loading-spinner")
 
-    // Events
-    // monsterListBtn.addEventListener("click", function () {
-    //     console.log("Clicaste en monster list")
-    // })
-
+    // Starting event
+    
     startingBtn.addEventListener("click", async function() {
 
         // Landing screen hides
-        landing.classList.add("hide"); 
+        landing.classList.add("hide");
+        
+        // Spinner shows up
+        spinner.style.display = "flex";
 
         // Monster section shows up
         monsterSect.style.display = null;
@@ -38,6 +38,9 @@
                         <p class="item-name">${largeMonsters[i].name}</p>
                     </article></button>`
         }
+
+        // Spinner hides
+        spinner.style.display = "none";
 
         // Cards get printed
         monsterSect.innerHTML = list;
@@ -60,6 +63,9 @@
 
                 //Hide the monster section
                 setTimeout(makeMonstersDisappear, 2000);
+
+                // Spinner shows up
+                spinner.style.display = "flex";
 
                 // Fetch weapon data
                 let res = await fetch("https://mhw-db.com/weapons")
@@ -92,6 +98,9 @@
                 // Weapon section shows up
                 weaponSect.style.display = null;
                 weaponSect.style.display = "flex";
+                
+                // Spinner hides
+                spinner.style.display = "none";
                 weaponSect.innerHTML = weaponList; 
 
                 // Store the weapon on LocalStorage
@@ -166,43 +175,6 @@
     
     homeBtn.addEventListener("click", returnHome)
 
-    monsterListBtn.addEventListener("click", async function() {
-
-        // Hide everything
-        monsterSect.style.display = null;
-        weaponSect.style.display = null;
-        comparatorSect.style.display = null;
-        monsterSect.innerHTML = "";
-        weaponSect.innerHTML = "";
-        comparatorSect.innerHTML = "";
-
-        // Redirect to html
-        window.location.replace = "../pages/mosnter-list.html";
-
-        // Monster section shows up
-        monsterSect2.style.display = null;
-        monsterSect2.style.display = "flex"; 
-    
-        // Fetch data from API
-        let res = await fetch("https://mhw-db.com/monsters")
-        let data = await res.json()
-        
-        // Filter only large monsters
-        let largeMonsters = data.filter(monster => monster.id > 16)
-        
-        // Print them on screen
-        let list = ""
-        for (let i = 0; i < largeMonsters.length; i++) {
-            list += `<button><article class="card">
-                        <img class="item-img" src="../assets/images/monster icons/${largeMonsters[i].name}.webp" alt="${largeMonsters[i].name}">
-                        <p class="item-name">${largeMonsters[i].name}</p>
-                    </article></button>`
-        }
-    
-        // Cards get printed
-        monsterSect2.innerHTML = list;
-    })
-    
     // Functions
     function makeMonstersDisappear() { 
         monsterSect.style.display = null

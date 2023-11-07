@@ -1,9 +1,9 @@
+// Variables globales
 const monsterSect2 = document.getElementById("monsters-list")
+const spinner = document.querySelector(".loading-spinner")
+
 
 async function generateMonsterList() {
-
-    
-
     // Monster section shows up
     monsterSect2.style.display = null;
     monsterSect2.style.display = "flex"; 
@@ -25,6 +25,7 @@ async function generateMonsterList() {
     }
 
     // Cards get printed
+    spinner.style.display = "none";
     monsterSect2.innerHTML = list;
 }
 
