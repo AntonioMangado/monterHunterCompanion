@@ -228,7 +228,7 @@ body {
 
 /*Loader*/
     .loading-spinner {
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         height: 100vh; /* Adjust the height to match your design */
