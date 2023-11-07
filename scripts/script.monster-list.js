@@ -5,6 +5,8 @@
 
     // Funciones
     async function generateMonsterList() {
+
+        spinner.style.display = "flex";
         // Monster section shows up
         monsterSect2.style.display = null;
         monsterSect2.style.display = "flex"; 
