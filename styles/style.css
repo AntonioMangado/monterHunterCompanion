@@ -227,20 +227,46 @@ body {
   }
 
 /*Loader*/
-.loading-spinner {
+    .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust the height to match your design */
+    }
+
+    .loading-spinner img {
+        width: 102px; /* Adjust the width and height to match your image size */
+        height: 64px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+/*Filtering section*/
+.filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust the height to match your design */
-  }
-  
-  .loading-spinner img {
-    width: 102px; /* Adjust the width and height to match your image size */
-    height: 64px;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+
+    margin: 20px auto;
+
+}
+
+.filter h3 {
+    width: 90%;
+}
+
+.filter button {
+    width: 150px;
+
+    background-color: #B2533E;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+    border: rgba(240, 237, 237, 0.85) 1px solid;
+}

@@ -193,3 +193,5 @@
         comparatorSect.innerHTML = ""; 
         landing.classList.remove("hide");
     }
+
+
