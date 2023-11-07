@@ -138,4 +138,4 @@
         document.querySelector(".filter-alph").addEventListener("click", generateMonstersAZ)
     }
 
-    //Events
+
