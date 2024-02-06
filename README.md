@@ -10,7 +10,6 @@ The motivation and purpose to create this app was to impletement all skills seen
   - **Monster list:** The app also features a list of monsters, that will contain their basic information in the future. The list can be sorted alphabetically, and monsters can be classified by species.
 
 ## :fast_forward: Next steps :fast_forward:
-  - Media queries to adapt to bigger screens (laptops and desktops).
   - Authentication functionality, with the ability to store previous searches.
   - Include monster stats in the monster list section.
 
